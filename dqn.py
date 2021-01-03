@@ -12,7 +12,7 @@ BUFFER_SIZE = int(1e5)  # replay buffer size
 BATCH_SIZE = 64         # minibatch size
 GAMMA = 0.99            # discount factor
 TAU = 1e-3              # for soft update of target parameters
-LR = 0.001             # learning rate, tried different learning rates and 0.0001 works best
+LR = 0.0001             # learning rate, tried different learning rates and 0.0001 works best
 UPDATE_EVERY = 5        # how often to update the network
 
 #This will use GPU if found, otherwise will use cpu

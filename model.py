@@ -22,12 +22,14 @@ class QNetwork(nn.Module):
         #Set the seed in our neural net
         self.seed = torch.manual_seed(seed)
         #Fully connected layers from state (fc1) to actions (fc3)
+        self.norm = nn.LayerNorm(state_size)
         self.fc1 = nn.Linear(state_size, fc_units[0])
         self.fc2 = nn.Linear(fc_units[0], fc_units[1])
         self.fc3 = nn.Linear(fc_units[1], action_size)
 
     def forward(self, x):
         """Build a network that maps state to action values."""
+        x = self.norm(x)
         x = self.fc1(x) 
         x = F.relu(x)
         x = self.fc2(x)
